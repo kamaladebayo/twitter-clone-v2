@@ -1,0 +1,81 @@
+.login > main{
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.login__content{
+    /* border: 3px dashed rgb(124, 124, 16); */
+    padding: 2em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.login__content > ion-icon{
+    font-size: calc(2vw + 5rem);
+    color: rgb(29, 155, 240);
+    /* rgb(83, 100, 113); */
+}
+.login__content h1{
+    font-size: calc(3vw + 1rem);
+    font-weight: 700;
+    margin-top: .8em;
+    word-spacing: 99999px;
+    line-height: 1.2em;
+    margin-bottom: .9em;
+}
+.login__content > .loginContent__signUpText{
+    font-size: calc(.5vw + 1rem);
+    font-weight: 700;
+}
+.loginContent__signInText{
+    margin-top: 3em;
+}
+
+/* HERO */
+.login__hero{
+    min-height: calc(22em + 10vh);
+    background-image: url(./twitterHero.png);
+    position: relative;
+}
+.login__hero > ion-icon{
+    font-size: calc(7rem + 5vh);
+    color: #FFF;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Footer */
+.login footer{
+    text-align: center;
+}
+.login footer ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+.login footer p{
+    font-size: .9rem;
+}
+@media(min-width: 1000px){
+    .login > main{
+        flex-direction: row;
+        min-height: 100vh;
+    }
+    .login__content{
+        max-width: unset;
+        flex: .45;
+        order: 2;
+    }
+    .login__hero{
+        min-height: unset;
+        flex: .55;
+        order: 1;
+    }
+    .login__hero > ion-icon{
+        font-size: calc(10vw + 8rem);
+    }
+}
