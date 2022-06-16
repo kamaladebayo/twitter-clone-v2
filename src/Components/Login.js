@@ -57,6 +57,7 @@ const Login = () => {
                 <div className="login__content">
                     <ion-icon name="logo-twitter"></ion-icon>
                     <h1>Happening now</h1>
+                    {name && <h3>Hi, {name}</h3>}
                     <h2 className='loginContent__signUpText'>Join Twitter today.</h2>
                     <Button type="default" shape="round" size='large' icon={<GoogleOutlined />}>
                         Sign up with Google
