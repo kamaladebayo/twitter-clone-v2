@@ -1,9 +1,9 @@
 import './Login.css'
-import GoogleLogo from './GoogleLogo.webp'
+// import GoogleLogo from './GoogleLogo.webp'
 import { Button } from 'antd';
 import { GoogleOutlined } from '@ant-design/icons';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../features/user/userSlice';
 import { useState } from 'react';
@@ -35,6 +35,8 @@ const Login = () => {
             dispatch(loginUser(user))
             setName(user.displayName)
             setPhotoURL(user.photoURL)
+            console.log(name, photoURL);
+            console.log(token);
             }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
@@ -43,6 +45,7 @@ const Login = () => {
             const email = error.customData.email;
             // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
+            console.log(errorCode, errorMessage, email, credential);
             // ...
             });
     }

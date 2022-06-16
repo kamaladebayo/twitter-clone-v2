@@ -2,9 +2,9 @@ import './App.css';
 import 'antd/dist/antd.min.css'
 import AuthTwitter from './Components/AuthTwitter';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+// import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Login from './Components/Login';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -19,6 +19,7 @@ function App() {
   };
 
   const app = initializeApp(firebaseConfig);
+  console.log(app);
 
 //   const provider = new GoogleAuthProvider();
 //   // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
