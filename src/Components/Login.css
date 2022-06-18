@@ -33,7 +33,7 @@
 
 /* HERO */
 .login__hero{
-    min-height: calc(22em + 10vh);
+    min-height: calc(27em + 10vh);
     background-image: url(./twitterHero.png);
     position: relative;
 }

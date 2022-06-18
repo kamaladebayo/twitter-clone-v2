@@ -4,49 +4,46 @@ import { Button } from 'antd';
 import { GoogleOutlined } from '@ant-design/icons';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 // import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { loginUser } from '../features/user/userSlice';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
-
+    // Redux hooks
+    // React router navigate hook
+    let navigate = useNavigate();
+    // Set user info
     const[name, setName] = useState('')
     const[photoURL, setPhotoURL] = useState('')
+    useEffect(() => {
+        localStorage.setItem("name", name)
+        localStorage.setItem("profileImg", photoURL)
+        name ? navigate("/home") : console.log("Not logged in");;
+    }, [name, photoURL, navigate])
     
-    // console.log(authUser);
-
-// // Redux
-//     const authUser = useSelector((state) => state.user.value)
-//     const dispatch = useDispatch()
-// Firebase auth
+    
+    // Firebase auth
     const provider = new GoogleAuthProvider();
-    // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-
-    const dispatch = useDispatch();
     const auth = getAuth();
     const handleSignIn = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            console.log(user);
-            dispatch(loginUser(user))
-            setName(user.displayName)
-            setPhotoURL(user.photoURL)
-            console.log(name, photoURL);
-            console.log(token);
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                console.log(user);
+                console.log(name, photoURL, token);
+                // Update user state
+                setName(user.displayName)
+                setPhotoURL(user.photoURL)
             }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.customData.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            console.log(errorCode, errorMessage, email, credential);
-            // ...
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                console.log(errorCode, errorMessage, email, credential);
             });
     }
 

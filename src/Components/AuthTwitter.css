@@ -1,0 +1,67 @@
+.home{
+    background: rgba(21, 32, 43, 1);
+    backdrop-filter: blur(12px);
+    height: 100%;
+    color: #FFF;
+    overflow-y: auto;
+}
+.home__header{
+    display: flex;
+    /* border-bottom: 1px solid rgb(56, 68, 77); */
+    color: #FFF;
+    align-items: center;
+    padding: .8em 1.2em;
+    gap: 2em;
+    position: sticky;
+    top: 0;
+    background: rgba(21, 32, 43, 1);
+    opacity: .99;
+    z-index: 999;
+}
+.home__header h1{
+    color: #FFF;
+    margin: 0;
+    font-size: 1.1rem;
+}
+.home__header .MuiSvgIcon-root[data-testid="RocketLaunchIcon"]{
+    margin-left: auto;
+}
+
+/* Bottom NAV */
+.home .MuiBottomNavigationAction-label.Mui-selected{
+    display: none !important;
+}
+.home .MuiBottomNavigation-root{
+    background: inherit;
+    border:  1px solid rgba(21, 32, 43, 1);
+    position: sticky;
+    bottom: 0;
+}
+.home .MuiBottomNavigation-root .MuiSvgIcon-root{
+    color: #FFF;
+    font-size: 2rem !important;
+}
+.home .MuiBottomNavigation-root .Mui-selected .MuiSvgIcon-root{
+    color: #1976d2;
+}
+
+/* Tweet */
+.tweet{
+    display: flex;
+    padding: 1.2em;
+    gap: 1.4em;
+    border-top: 1px solid rgb(56, 68, 77);;
+    border-bottom: 1px solid rgb(56, 68, 77);;
+}
+.tweet p{
+    margin: 0;
+}
+.tweet__header{
+    display: flex;
+    gap: .5em;
+}                     
+.tweet__timestamp{
+    color: rgb(139, 152, 165);
+    font-weight: 400;
+    font-size: .9rem;
+}
