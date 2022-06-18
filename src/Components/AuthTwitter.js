@@ -141,6 +141,9 @@ const AuthTwitter = () => {
                     component = "span"
                     variant="contained"
                     >Tweet</Button>
+                    <br />
+                    <br />
+                    <p>Please refresh after sending a tweet. I'll fix it soon</p>
                 </Drawer>
         </div>
      );
